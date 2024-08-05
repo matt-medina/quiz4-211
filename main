@@ -1,0 +1,26 @@
+section .data
+
+section .bss
+    result resq 1
+
+section .text
+    global _start
+
+_start:
+    mov rdi, 5
+    mov rsi, 10
+    mov rdx, 20
+    call add_three
+
+    mov eax, 60
+    xor edi, edi
+    syscall
+
+add_three:
+    mov rax, rdi
+    add rax, rsi
+    add rax, rdx
+
+    mov [result], rax
+    
+    ret
